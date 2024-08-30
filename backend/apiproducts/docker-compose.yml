@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  apiproducts:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: apiproducts
+    ports:
+      - "3006:3000" 
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped

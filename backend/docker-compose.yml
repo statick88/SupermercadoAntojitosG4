@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  apisales:
+    build: 
+      context: ./apisales
+      dockerfile: Dockerfile
+    container_name: apisales
+    ports:
+      - "3005:3000" 
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./apisales:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+
+  apiproducts:
+    build: 
+      context: ./apiproducts
+      dockerfile: Dockerfile
+    container_name: apiproducts
+    ports:
+      - "3006:3000" 
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./apiproducts:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+
+  apicustomer:
+    build: 
+      context: ./apicustomers
+      dockerfile: Dockerfile
+    container_name: apicustomer
+    ports:
+      - "3007:3000" 
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./apicustomers:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+
