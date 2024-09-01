@@ -10,6 +10,6 @@ async function bootstrap() {
     transform: true, // Transforma la entrada a la clase especificada en el DTO
   }));
   app.enableCors(); // Esto habilita CORS si es necesario
-  await app.listen(3000, '0.0.0.0');
+  await app.listen(3001, '0.0.0.0');
 }
 bootstrap();
