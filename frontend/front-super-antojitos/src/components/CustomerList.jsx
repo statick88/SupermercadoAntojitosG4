@@ -12,7 +12,7 @@ const CustomerList = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/customer/getData')
+    axios.get('http://localhost:3007/customer/getData')
       .then(response => {
         const data = response.data;
         if (data && typeof data === 'object') {
@@ -48,7 +48,7 @@ const CustomerList = () => {
     }
   
     console.log('Deleting customer:', customerToDelete);
-    axios.delete(`http://localhost:3001/customer/deleteData/${id}`)
+    axios.delete(`http://localhost:3007/customer/deleteData/${id}`)
       .then(() => {
         alert('Cliente eliminado');
         // Actualizar el estado de los clientes después de la eliminación
@@ -63,7 +63,7 @@ const CustomerList = () => {
   };
 
   const handleUpdate = (id, updatedData) => {
-    axios.put(`http://localhost:3001/customer/updateData/${id}`, updatedData)
+    axios.put(`http://localhost:3007/customer/updateData/${id}`, updatedData)
       .then(() => {
         alert('Cliente actualizado');
         setCustomers(prevCustomers =>

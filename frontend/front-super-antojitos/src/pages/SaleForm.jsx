@@ -14,7 +14,7 @@ const SaleForm = () => {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/customer/getData');
+        const response = await axios.get('http://localhost:3007/customer/getData');
         const data = response.data;
 
         if (data && typeof data === 'object') {
@@ -41,7 +41,7 @@ const SaleForm = () => {
       if (!customerId) return;
 
       try {
-        const response = await axios.get('http://localhost:3000/product/getData');
+        const response = await axios.get('http://localhost:3006/product/getData');
         const data = response.data;
 
         if (data && typeof data === 'object') {
@@ -103,13 +103,13 @@ const SaleForm = () => {
     };
 
     try {
-      await axios.post('http://localhost:3002/sale/createData', saleData);
+      await axios.post('http://localhost:3005/sale/createData', saleData);
 
       for (let item of detail) {
         const updatedProduct = products.find((product) => product.id === item.productId);
         const newStock = updatedProduct.stock - item.quantity;
 
-        await axios.put(`http://localhost:3000/product/updateData/${item.productId}`, {
+        await axios.put(`http://localhost:3006/product/updateData/${item.productId}`, {
           description: updatedProduct.description,
           price: updatedProduct.price,
           stock: newStock,

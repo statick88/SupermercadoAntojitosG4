@@ -31,7 +31,7 @@ const Temp = () => {
 
     try {
         console.log(saleData)
-      await axios.post('http://localhost:3002/sale/createData', saleData);
+      await axios.post('http://localhost:3005/sale/createData', saleData);
       alert('Sale recorded successfully');
     } catch (error) {
       console.error('Error recording sale', error);

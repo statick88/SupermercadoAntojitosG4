@@ -14,7 +14,7 @@ const ProductList = () => {
   const fetchProductsList = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:3000/product/getData');
+      const response = await axios.get('http://localhost:3006/product/getData');
       const data = response.data;
       if (data && typeof data === 'object') {
         // Convert object to array
@@ -51,7 +51,7 @@ const ProductList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/product/deleteData/${id}`);
+      await axios.delete(`http://localhost:3006/product/deleteData/${id}`);
       // Refresh the list after deletion
       fetchProductsList();
       alert('Producto eliminado');
@@ -73,12 +73,12 @@ const ProductList = () => {
 
     try {
       if (id) {
-        await axios.put(`http://localhost:3000/product/updateData/${id}`, validatedProductData);
+        await axios.put(`http://localhost:3006/product/updateData/${id}`, validatedProductData);
         // Refresh the list after update
         fetchProductsList();
         alert('Producto actualizado');
       } else {
-        const response = await axios.post('http://localhost:3000/product/createData', validatedProductData);
+        const response = await axios.post('http://localhost:3006/product/createData', validatedProductData);
         // No need to manually add the new product to state as fetchProductsList() will refresh the list
         fetchProductsList(); // Re-fetch to get the new product with the assigned ID
         alert('Producto creado');

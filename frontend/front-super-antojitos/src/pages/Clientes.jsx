@@ -11,13 +11,13 @@ const Clientes = () => {
 
   const handleCustomerSubmit = (customer) => {
     if (customer.id) {
-      axios.put(`http://localhost:3001/customer/updateData/${customer.id}`, customer)
+      axios.put(`http://localhost:3007/customer/updateData/${customer.id}`, customer)
         .then(() => {alert('Customer updated')
           console.log(customer)
         })
         .catch(error => console.error(error));
     } else {
-      axios.post('http://localhost:3001/customer/createData', customer)
+      axios.post('http://localhost:3007/customer/createData', customer)
         .then(() => alert('Customer created'))
         .catch(error => console.error(error));
     }

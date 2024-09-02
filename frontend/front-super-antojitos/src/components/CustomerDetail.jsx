@@ -43,7 +43,7 @@ const CustomerDetail = ({ customer, show, handleClose, handleUpdate }) => {
 
   const handleDelete = () => {
     console.log('Deleting customer:', customer);
-    axios.delete(`http://localhost:3001/customer/deleteData/${customer.id}`)
+    axios.delete(`http://localhost:3007/customer/deleteData/${customer.id}`)
       .then(() => {
         alert('Cliente eliminado');
         handleClose();

@@ -10,7 +10,7 @@ const DetalleVentas = () => {
   useEffect(() => {
     const fetchSales = async () => {
       try {
-        const response = await axios.get('http://localhost:3002/sale/getData');
+        const response = await axios.get('http://localhost:3005/sale/getData');
         const data = response.data;
 
         if (data && typeof data === 'object') {
@@ -31,7 +31,7 @@ const DetalleVentas = () => {
 
     const fetchCustomers = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/customer/getData');
+        const response = await axios.get('http://localhost:3007/customer/getData');
         const data = response.data;
 
         if (data && typeof data === 'object') {
@@ -52,7 +52,7 @@ const DetalleVentas = () => {
 
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/product/getData');
+        const response = await axios.get('http://localhost:3006/product/getData');
         const data = response.data;
 
         if (data && typeof data === 'object') {
