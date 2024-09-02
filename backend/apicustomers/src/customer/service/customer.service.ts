@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { DataSnapshot, push, ref, set, get } from 'firebase/database';
-import { firebaseDataBase } from 'src/firebaseConfig';
+import { firebaseDataBase } from '../../firebaseConfig';
 
 @Injectable()
 export class CustomerService {
